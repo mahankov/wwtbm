@@ -8,7 +8,18 @@
 
 import Foundation
 
+
 class Game {
-    static var gameSession: GameSession?
+    static let shared = Game()
+    var questions = 0
+    var answers = 0
+    var gameSession: [GameSession] = []
+    
     private init() {}
+    
+    func newSession(session: GameSession) {
+        gameSession.append(session)
+        questions += session.questionsCount
+        answers += session.correctAnswers
+    }
 }

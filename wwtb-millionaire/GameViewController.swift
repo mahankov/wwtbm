@@ -9,7 +9,7 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
+    
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var answer1: UIButton!
     @IBOutlet weak var answer2: UIButton!
@@ -17,25 +17,42 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answer4: UIButton!
     @IBOutlet weak var newGame: UIButton!
     
-    var game = Game.self
+    var session = GameSession()
     
     var questionsArray = [
-        QuestionsArray(question: "Как правильно продолжить припев детской песни: Тили-тили...?", correct: 2, answers: ["хали-гали","трали-вали","жили-были","ели-пили"], level: 1),
-        QuestionsArray(question: "Что понадобится, чтобы взрыхлить землю на грядке?", correct: 1, answers: ["тяпка","бабка","скобка","тряпка"], level: 1),
-        QuestionsArray(question: "Как называется экзотическое животное из Южной Америки?", correct: 3, answers: ["пчеложор","термитоглот","муравьед","комаролов"], level: 1),
-        QuestionsArray(question: "Во что превращается гусеница?", correct: 4, answers: ["в мячик","в пирамидку","в машинку","в куколку"], level: 2),
-        QuestionsArray(question: "К какой группе музыкальных инструментов относится валторна?", correct: 4, answers: ["струнные","клавишные","ударные","духовые"], level: 2)
+        QuestionsArray(
+            question: "Как правильно продолжить припев детской песни: Тили-тили...?",
+            correct: 2,
+            answers: ["хали-гали","трали-вали","жили-были","ели-пили"]),
+        QuestionsArray(
+            question: "Что понадобится, чтобы взрыхлить землю на грядке?",
+            correct: 1,
+            answers: ["тяпка","бабка","скобка","тряпка"]),
+        QuestionsArray(
+            question: "Как называется экзотическое животное из Южной Америки?",
+            correct: 3,
+            answers: ["пчеложор","термитоглот","муравьед","комаролов"]),
+        QuestionsArray(
+            question: "Во что превращается гусеница?",
+            correct: 4,
+            answers: ["в мячик","в пирамидку","в машинку","в куколку"]),
+        QuestionsArray(
+            question: "К какой группе музыкальных инструментов относится валторна?",
+            correct: 4,
+            answers: ["струнные","клавишные","ударные","духовые"])
     ]
     
     var currentQuestion: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        session.loadQuestionsCount(count: questionsArray.count)
         startNewGame()
     }
     
     func showQuestion() {
         if questionsArray.count > currentQuestion + 1 {
+            session.incCorrectAnswers()
             question.text = questionsArray[currentQuestion].question
             answer1.setTitle(questionsArray[currentQuestion].answers[0], for: .normal)
             answer2.setTitle(questionsArray[currentQuestion].answers[1], for: .normal)
@@ -48,12 +65,13 @@ class GameViewController: UIViewController {
             answer3.isHidden = true
             answer4.isHidden = true
             newGame.isHidden = false
+            Game.shared.newSession(session: session)
+            session.clearSession()
         }
     }
     
     func startNewGame() {
         currentQuestion = 0
-        game.gameSession?.questionsCount = questionsArray.count
         newGame.isHidden = true
         answer1.isHidden = false
         answer2.isHidden = false
@@ -63,13 +81,14 @@ class GameViewController: UIViewController {
     }
     
     func gameOver() {
-        game.gameSession?.correctAnswers = currentQuestion
         answer1.isHidden = true
         answer2.isHidden = true
         answer3.isHidden = true
         answer4.isHidden = true
         newGame.isHidden = false
         question.text = "Неверный ответ! Вы проиграли!"
+        Game.shared.newSession(session: session)
+        session.clearSession()
     }
     
     func checkAnswer(number: Int) {

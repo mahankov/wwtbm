@@ -12,12 +12,10 @@ class QuestionsArray {
     var question:String
     var correct:Int
     var answers:Array<String>
-    var level:Int
     
-    init(question:String, correct:Int, answers:Array<String>, level:Int) {
+    init(question:String, correct:Int, answers:Array<String>) {
         self.question = question
         self.correct = correct
         self.answers = answers
-        self.level = level
     }
 }
