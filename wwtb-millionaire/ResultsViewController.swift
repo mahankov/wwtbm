@@ -14,8 +14,11 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let gameSession = Game.gameSession else { return }
-        results.text = "Решено \(gameSession.correctAnswers) из \(gameSession.questionsCount) вопросов"
+        if Game.shared.questions > 0 {
+            results.text = "Из \(Game.shared.questions) вопросов, верно отвечено на \(Game.shared.answers)"
+        } else {
+            results.text = "Вы еще ни разу не сыграли!"
+        }
     }
-    
+
 }

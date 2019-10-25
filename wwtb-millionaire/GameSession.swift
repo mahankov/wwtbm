@@ -18,4 +18,8 @@ class GameSession {
     func incCorrectAnswers() {
         self.correctAnswers += 1
     }
+    func clearSession() {
+        questionsCount = 0
+        correctAnswers = 0
+    }
 }
