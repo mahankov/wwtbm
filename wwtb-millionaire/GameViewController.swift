@@ -49,7 +49,7 @@ class GameViewController: UIViewController {
         session.loadQuestionsCount(count: questionsArray.count)
         startNewGame()
     }
-     
+    
     func showQuestion() {
         if questionsArray.count > currentQuestion + 1 {
             session.incCorrectAnswers()
