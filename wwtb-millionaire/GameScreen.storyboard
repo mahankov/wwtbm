@@ -35,16 +35,25 @@
                                     <segue destination="n0g-wE-pU4" kind="show" id="eNc-wG-eSR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-ij-LLZ">
+                                <rect key="frame" x="168" y="548" width="78" height="30"/>
+                                <state key="normal" title="Настройки"/>
+                                <connections>
+                                    <segue destination="4vy-8J-gxz" kind="show" id="nzD-TF-Ba1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.066973751920000005" green="0.03195934106" blue="0.15335573189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0Xi-k6-3UB" firstAttribute="top" secondItem="daX-N4-3M5" secondAttribute="bottom" constant="30" id="15G-rE-qwM"/>
                             <constraint firstItem="daX-N4-3M5" firstAttribute="centerX" secondItem="sRy-0m-hQt" secondAttribute="centerX" id="1qx-0m-y2F"/>
                             <constraint firstItem="daX-N4-3M5" firstAttribute="top" secondItem="gaH-gG-QgV" secondAttribute="bottom" constant="220" id="3nq-Cm-t24"/>
+                            <constraint firstItem="hyu-ij-LLZ" firstAttribute="top" secondItem="0Xi-k6-3UB" secondAttribute="bottom" constant="30" id="9ub-Up-ACl"/>
                             <constraint firstItem="0Xi-k6-3UB" firstAttribute="trailing" secondItem="daX-N4-3M5" secondAttribute="trailing" id="Nsr-wf-8Mh"/>
                             <constraint firstItem="7MR-WI-IzN" firstAttribute="trailing" secondItem="gaH-gG-QgV" secondAttribute="trailing" constant="150" id="Tr5-yU-PdM"/>
                             <constraint firstItem="gaH-gG-QgV" firstAttribute="top" secondItem="7MR-WI-IzN" secondAttribute="top" constant="50" id="VLS-sF-iFB"/>
                             <constraint firstItem="gaH-gG-QgV" firstAttribute="leading" secondItem="7MR-WI-IzN" secondAttribute="leading" constant="150" id="Xs9-U8-h11"/>
+                            <constraint firstItem="hyu-ij-LLZ" firstAttribute="centerX" secondItem="sRy-0m-hQt" secondAttribute="centerX" id="Yhr-ki-Xns"/>
                             <constraint firstItem="0Xi-k6-3UB" firstAttribute="centerX" secondItem="sRy-0m-hQt" secondAttribute="centerX" id="sGI-gG-0r2"/>
                             <constraint firstItem="gaH-gG-QgV" firstAttribute="centerX" secondItem="sRy-0m-hQt" secondAttribute="centerX" id="zxJ-B7-YPG"/>
                         </constraints>
@@ -86,7 +95,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGx-fg-qhR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="345"/>
+            <point key="canvasLocation" x="974" y="769"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sDi-4I-IU3">
+            <objects>
+                <viewController id="4vy-8J-gxz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vf6-S0-C66">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопросы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9H-fP-flQ">
+                                <rect key="frame" x="20" y="100" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kY5-RK-Od7">
+                                <rect key="frame" x="125" y="95" width="269" height="32"/>
+                                <segments>
+                                    <segment title="Последовательно"/>
+                                    <segment title="Хаотично"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.066973751920000005" green="0.03195934106" blue="0.15335573189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="r9H-fP-flQ" firstAttribute="top" secondItem="hdx-vb-0RF" secondAttribute="top" constant="100" id="6gN-3z-ygw"/>
+                            <constraint firstItem="kY5-RK-Od7" firstAttribute="centerY" secondItem="r9H-fP-flQ" secondAttribute="centerY" id="7ZT-NO-fFH"/>
+                            <constraint firstItem="r9H-fP-flQ" firstAttribute="leading" secondItem="hdx-vb-0RF" secondAttribute="leading" constant="20" id="G4x-cU-7jN"/>
+                            <constraint firstItem="hdx-vb-0RF" firstAttribute="trailing" secondItem="kY5-RK-Od7" secondAttribute="trailing" constant="20" id="LUM-uL-dGm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hdx-vb-0RF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gPu-RY-OnZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LbG-vP-WTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971.01449275362324" y="-613.39285714285711"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Fp6-ri-HbU">
@@ -259,10 +306,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBg-la-fdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963.76811594202911" y="-342.1875"/>
+            <point key="canvasLocation" x="972" y="82"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="5000" height="5000"/>
+        <image name="logo" width="1500" height="1500"/>
     </resources>
 </document>

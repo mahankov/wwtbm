@@ -36,7 +36,9 @@ class GameViewController: UIViewController {
     
     var session = GameSession()
     
-    var questionsArray = [
+    let winAmount = [0,100,500,1000,5000,10000,50000,100000,250000,500000,1000000]
+    
+    let questionsArray = [
         QuestionsArray(
             question: "Как правильно продолжить припев детской песни: Тили-тили...?",
             correct: 2,
@@ -69,6 +71,17 @@ class GameViewController: UIViewController {
     
     func setupGame() {
         session.loadQuestionsCount(count: questionsArray.count)
+        moneyIndicator1.text  = String(winAmount[0])
+        moneyIndicator2.text  = String(winAmount[1])
+        moneyIndicator3.text  = String(winAmount[2])
+        moneyIndicator4.text  = String(winAmount[3])
+        moneyIndicator5.text  = String(winAmount[4])
+        moneyIndicator6.text  = String(winAmount[5])
+        moneyIndicator7.text  = String(winAmount[6])
+        moneyIndicator8.text  = String(winAmount[7])
+        moneyIndicator9.text  = String(winAmount[8])
+        moneyIndicator10.text = String(winAmount[9])
+        moneyIndicator11.text = String(winAmount[10])
         moneyIndicators.append(moneyIndicator1)
         moneyIndicators.append(moneyIndicator2)
         moneyIndicators.append(moneyIndicator3)
@@ -109,6 +122,7 @@ class GameViewController: UIViewController {
             answer4.setTitle(questionsArray[currentQuestion].answers[3], for: .normal)
         } else {
             session.incCorrectAnswers()
+            session.winAmount = winAmount[currentQuestion]
             moneyIndicatorsView()
             question.text = "Поздравляем, вы выиграли!"
             answer1.isHidden = true
@@ -138,6 +152,7 @@ class GameViewController: UIViewController {
         answer4.isHidden = true
         newGame.isHidden = false
         question.text = "Неверный ответ! Вы проиграли!"
+        session.winAmount = winAmount[currentQuestion]
         Game.shared.newSession(session: session)
         session.clearSession()
     }

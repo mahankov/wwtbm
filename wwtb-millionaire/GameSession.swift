@@ -8,9 +8,10 @@
 
 import Foundation
 
-class GameSession {
+class GameSession: Codable {
     var questionsCount: Int = 0
     var correctAnswers: Int = 0
+    var winAmount: Int = 0
     
     func loadQuestionsCount(count: Int) {
         self.questionsCount = count
