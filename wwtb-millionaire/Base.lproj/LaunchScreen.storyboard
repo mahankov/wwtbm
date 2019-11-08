@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="URD-kL-h8a">
-                                <rect key="frame" x="50" y="291" width="314" height="314"/>
+                                <rect key="frame" x="100" y="341" width="214" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="URD-kL-h8a" secondAttribute="height" multiplier="1:1" id="wdf-LS-Qpg"/>
                                 </constraints>
@@ -25,9 +25,9 @@
                         <color key="backgroundColor" red="0.066973751920050492" green="0.031959341064849968" blue="0.15335573186528495" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="URD-kL-h8a" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6vl-jK-wnx"/>
-                            <constraint firstItem="URD-kL-h8a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="XE5-bX-dUn"/>
+                            <constraint firstItem="URD-kL-h8a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XE5-bX-dUn"/>
                             <constraint firstItem="URD-kL-h8a" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bo6-XO-dhG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="URD-kL-h8a" secondAttribute="trailing" constant="50" id="eUf-HP-Hch"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="URD-kL-h8a" secondAttribute="trailing" constant="100" id="eUf-HP-Hch"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="5000" height="5000"/>
+        <image name="logo" width="1500" height="1500"/>
     </resources>
 </document>
